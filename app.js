@@ -16,20 +16,21 @@ var getJsonData = {
 		}
 }
 // New Board
-var newBoardGame = function(){
-	var opaque = randomIntNumber(6,9),
-		duplicateOpaque = opaque * 2;  
+var newBoardGame = function(){	
+ var opaque = randomIntNumber(6, 12);	
 		  getJsonData.read().done(function(data){
-			  for(k in data){
-				  images.push(data[k]["image"]);
-				  imgPhrase.push(data[k]["phrase"]);
-					 
-			  }
-			  for(var i=0; i< duplicateOpaque; i++){	
-					var randomImg = Math.floor( Math.random() * images.length);
-				    $("#generateTiles").append("<li data-id='image"+i+"'>\
+				 cardsArray = $.merge(data, data);	
+				 console.log(cardsArray)			        	  
+			     for(k in cardsArray){
+				  images.push(cardsArray[k]["image"]);
+				  imgPhrase.push(cardsArray[k]["phrase"]);				 
+			  }	
+			
+			  for(var i=0; i< opaque*2; i++){				
+					var randomImg = Math.floor( Math.random() * images.length);						 			 					
+				    $("#memoryCardGame").append("<li data-id='image"+i+"'>\
 						  <div class='insdie'>\
-						  <div class='front'><img src='"+images[randomImg]+"' data-name='"+imgPhrase[randomImg]+"'></div>\
+						  <div class='front'><img src='"+images[randomImg]+"' data-name='"+imgPhrase[randomImg]+"' data-id='"+randomImg+"'></div>\
 						  <div class='back'></div>\
 						  </div></li>"
 				    );
@@ -39,24 +40,6 @@ var newBoardGame = function(){
 }
 newBoardGame()
 });
-
-
 //generate random Number between 6 to 12
-
-
 //random Images
-var randomImage = function(){
-	Array.prototype.RandomImage = function(){
-		var len = this.length, j, temp;
-		while(--len){
-			j = Math.floor( Math.random() * (len-1));
-			temp = this[len];
-			this[len] = this[j];
-			this[j] = temp;	
-		}	
-	};
-	images.RandomImage();
-	imgPhrase.RandomImage();
-}
-
 
