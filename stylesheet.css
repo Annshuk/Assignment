@@ -11,7 +11,39 @@ body{ font:12px/16px noraml Arial, Helvetica, sans-serif; text-align:center; wid
 .fix-wrapper{ width:90%; margin:0 auto; position:relative}
 .tile-wrap{width: 500px; display:inline-table }
 .match-tiles{ list-style:none; padding:0; margin: 0 auto; width:410px }
-.match-tiles li{ width:120px; height:120px; overflow:hidden; background:#CCC; display:block; float:left; margin:2px; border:1px #9D9D9D solid}
-.match-tiles li a{ display:block; text-decoration:none; border:0; outline:0}
-.match-tiles li a img{ width:100%; height:100%}
-.match-tiles li:hover{opacity:.5}
+.match-tiles li{ width:120px; height:120px; overflow:hidden; background:#CCC; display:block; float:left; margin:2px; border:1px #9D9D9D solid; position:relative; z-index:2}
+.match-tiles li .inside{width: 100%; height: 100%;  display: block;  -webkit-transform-style: preserve-3d;   transform-style: preserve-3d;   -webkit-transition: .4s ease-in-out;   transition: .4s ease-in-out;   background: white;}
+.match-tiles li .front {
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);	
+}
+.match-tiles li .front, .match-tiles li .back{ 
+    border: 1px solid black;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;    
+}
+.match-tiles li .back{ background:url(block.png) no-repeat center center; display:block}
+.match-tiles li .front img{ width:100%; height:100%}
+.match-tiles li:hover{opacity:.5}   
+@-webkit-keyframes matchAnim {
+  0% {
+    background: #bcffcc;
+  }
+  100% {
+    background: white;
+  }
+}
+
+@keyframes matchAnim {
+  0% {
+    background: #bcffcc;
+  }
+  100% {
+    background: white;
+  }
+}
