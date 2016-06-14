@@ -8,14 +8,22 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* body  */
 body{ font:12px/16px noraml Arial, Helvetica, sans-serif; text-align:center; width:100%; height:100%;}
 .title{ font-weight:bold; font-size:12pt; color:#52B7ED; text-align:center}
+.textNotify{font-weight:bold; color:#65972D; font-size:11pt;}
 .fix-wrapper{ width:90%; margin:0 auto; position:relative}
-.tile-wrap{width: 500px; display:inline-table }
-.match-tiles{ list-style:none; padding:0; margin: 0 auto; width:410px }
+.tile-wrap{width: 500px; display:inline-table;position:relative }
+.center-popup{ top:0; left:0; bottom:0; right:0; margin:auto;  display:none; }
+.modal-window{ width:100%; height:100vm; position: absolute; z-index:5; background:#333; opacity:.5;}
+.confirmation{ width:300px; height:120px; position:fixed; background-color:#CDD8E9; border:1px #598FE1 solid; z-index:6; opacity:1}
+.match-tiles{ list-style:none; padding:0; margin: 0 auto; width:410px; position:relative}
 .match-tiles li{ width:120px; height:120px; overflow:hidden; background:#CCC; display:block; float:left; margin:2px; border:1px #9D9D9D solid; position:relative; z-index:2}
 .match-tiles li .inside{width: 100%; height: 100%;  display: block;  -webkit-transform-style: preserve-3d;   transform-style: preserve-3d;   -webkit-transition: .4s ease-in-out;   transition: .4s ease-in-out;   background: white;}
-.match-tiles li .front {
-   // -webkit-transform: rotateY(-180deg);
-   // transform: rotateY(-180deg);	
+.match-tiles li .front, .inside.picked , .inside.matched{
+   -webkit-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+	-webkit-animation: 1s matchAnim ease-in-out;
+    animation: 1s matchAnim ease-in-out;
+    -webkit-animation-delay: .4s;
+     animation-delay: .4s;	
 }
 .match-tiles li .front, .match-tiles li .back{ 
     border: 1px solid black;
@@ -27,7 +35,7 @@ body{ font:12px/16px noraml Arial, Helvetica, sans-serif; text-align:center; wid
     width: 100%;
     height: 100%;    
 }
-//.match-tiles li .back{ background:url(block.png) no-repeat center center; display:block}
+.match-tiles li .back{ background:url(block.png) no-repeat center center; display:block; }
 .match-tiles li .front img{ width:100%; height:100%}
 .match-tiles li:hover{opacity:.5}   
 @-webkit-keyframes matchAnim {
@@ -46,4 +54,44 @@ body{ font:12px/16px noraml Arial, Helvetica, sans-serif; text-align:center; wid
   100% {
     background: white;
   }
+}
+
+.myButton {
+	-moz-box-shadow:inset 0px -23px 7px 0px #3498c7;
+	-webkit-box-shadow:inset 0px -23px 7px 0px #3498c7;
+	box-shadow:inset 0px -23px 7px 0px #3498c7;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2dabf9), color-stop(1, #0688fa));
+	background:-moz-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-webkit-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-o-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-ms-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2dabf9', endColorstr='#0688fa',GradientType=0);
+	background-color:#2dabf9;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #0b0e07;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:6px 15px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0688fa), color-stop(1, #2dabf9));
+	background:-moz-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+	background:-webkit-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+	background:-o-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+	background:-ms-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+	background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0688fa', endColorstr='#2dabf9',GradientType=0);
+	background-color:#0688fa;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
 }

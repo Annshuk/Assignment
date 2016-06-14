@@ -9,12 +9,19 @@
 <body>
 <div class="fix-wrapper">
 		<article class="tile-wrap">
+        	<div class="modal-window center-popup"> </div>
+            <div class="confirmation center-popup">
+            <br />
+            <h3>Good Job. Play Again</h3>
+            <p>You Best Score is : <span id='bestScore'></span></p>
+            <input type="button" value="Play Again" class="myButton" id="resetGame"/>
+               </div>
         <h3 class="title">Find Matching titles as quickly as you can</h3>
+        <p id="timerDesc">Your Time Started <span id="timer"></span> and You have Match <span  id="MatchTiles">0</span> Tiles</p>
+        <p id="status" class="textNotify">Matching Tiles Removed</p>
         	<ul class="match-tiles" id="memoryCardGame">            
             </ul>        
         </article>
-		
-
 </div>
 
 
