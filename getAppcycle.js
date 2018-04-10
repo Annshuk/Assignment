@@ -16,6 +16,5 @@ $(function(){
 });
 
 function daysInMonth(month, year) {
-  console.log(month)
     return new Date(year, month, 0).getDate();
 }
